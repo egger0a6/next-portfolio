@@ -11,7 +11,6 @@ import { IoClose } from "react-icons/io5";
 
 const Navbar = () => {
   const pathname = useHash();
-  console.log(pathname)
   const [openNavigation, setOpenNavigation] = useState<boolean>(false);
 
   const toggleNavigation = () => {
@@ -43,14 +42,14 @@ const Navbar = () => {
           />
         </a>
 
-        <nav className={`${openNavigation ? "flex" : "hidden"} fixed top-[5rem] left-0 right-0 bottom-0 bg-dark-1 lg:static lg:flex lg:mx-auto lg:bg-transparent`}>
-          <div className="relative z-5 flex flex-col items-center justify-center m-auto lg:flex-row">
+        <nav className={`${openNavigation ? "flex" : "hidden"} fixed top-[5rem] left-0 right-0 bottom-0 bg-dark-1 lg:static lg:flex lg:bg-transparent`}>
+          <div className="z-5 flex flex-col items-center justify-center m-auto lg:flex-row">
             {navigation.map((item) => (
               <a 
                 key={item.id}
                 href={item.url}
                 onClick={handleClick}
-                className={`block relative font-code text-2xl uppercase text-light-6 transition-colors hover:text-red-2 px-6 py-6 md:py-8 lg:-mr-0.25 lg:text-xl lg:font-semibold ${item.url.slice(1) === pathname ? "z-5 lg:text-light-4" : "lg:text-light-1"} lg:leading-5 lg:hover:text-light-6 xl:px-12`}
+                className={`block font-code text-2xl uppercase text-light-6 transition-colors hover:text-red-2 px-6 py-6 md:py-8 lg:-mr-0.25 lg:text-xl lg:font-semibold ${item.url.slice(1) === pathname ? "z-5 lg:text-light-4" : "lg:text-light-1"} lg:leading-5 lg:hover:text-light-6 xl:px-12`}
               >
                 {item.title}
               </a>

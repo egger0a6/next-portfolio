@@ -3,6 +3,7 @@ const {
 } = require("tailwindcss/lib/util/flattenColorPalette");
 
 import type { Config } from "tailwindcss"
+import plugin from "tailwindcss";
 
 const config = {
   darkMode: ["class"],
@@ -37,6 +38,9 @@ const config = {
           3: "#191D23",
           4: "#1B2027",
         },
+        stroke: {
+          1: "#26242C",
+        },
         red: {
           1: "#FF204E",
           2: "#EA5454",
@@ -49,6 +53,20 @@ const config = {
       },
       fontFamily: {
         code: "var(--font-code)",
+      },
+      spacing: {
+        0.25: "0.0625rem",
+        7.5: "1.875rem",
+        15: "3.75rem",
+      },
+      transitionDuration: {
+        DEFAULT: "200ms",
+      },
+      transitionTimingFunction: {
+        DEFUALT: "linear",
+      },
+      borderWidth: {
+        DEFAULT: "0.0625rem",
       },
       keyframes: {
         "accordion-down": {
@@ -66,7 +84,18 @@ const config = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate"), addVariablesForColors],
+  plugins: [
+    require("tailwindcss-animate"), 
+    addVariablesForColors,
+    plugin(function({addComponents}) {
+      addComponents({
+        ".container": {
+          "@apply max-w-[77.5rem] mx-auto px-5 md:px-10 lg:px-15 xl:max-w-[87.5rem]":
+            {},
+        },
+      })
+    }),
+  ],
 } satisfies Config
 
 // This plugin adds each Tailwind color as a global CSS variable, e.g. var(--gray-200).

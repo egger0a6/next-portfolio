@@ -1,6 +1,12 @@
+import Section from "./design/Section";
+
 const About = () => {
   return (
-    <div>About</div>
+    <Section id="about">
+      <div className="container relative">
+
+      </div>
+    </Section>
   )
 }
 
