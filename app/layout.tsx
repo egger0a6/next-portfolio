@@ -7,9 +7,9 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Zach Eggert",
   description: "Zach's portfolio",
-  icons: {
-    icon: ""
-  }
+  // icons: {
+  //   icon: ""
+  // }
 };
 
 export default function RootLayout({
@@ -19,7 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={`${inter.className} bg-dark-1`}>{children}</body>
     </html>
   );
 }

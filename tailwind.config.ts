@@ -24,17 +24,31 @@ const config = {
     extend: {
       colors: {
         light: {
-          1: "#DDDDDD",
+          1: "#888888",
+          2: "#9F9F9F",
+          3: "#B5B5B5",
+          4: "#CBCBCB",
+          5: "#E0E0E0",
+          6: "#F6F6F6",
         },
         dark: {
-          1: "#222831",
-          2: "#30475E",
-          3: "#070F2B"
+          1: "#15181E",
+          2: "#161A20",
+          3: "#191D23",
+          4: "#1B2027",
         },
         red: {
           1: "#FF204E",
-          2: "#F05454",
+          2: "#EA5454",
+          3: "#F05454",
+        },
+        blue: {
+          2: "#30475E",
+          3: "#070F2B",
         }
+      },
+      fontFamily: {
+        code: "var(--font-code)",
       },
       keyframes: {
         "accordion-down": {
@@ -67,4 +81,4 @@ function addVariablesForColors({ addBase, theme }: any) {
   });
 }
 
-export default config
+export default config;
