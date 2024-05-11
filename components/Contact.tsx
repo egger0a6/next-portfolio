@@ -1,6 +1,15 @@
+import Section from "./design/Section";
+
 const Contact = () => {
   return (
-    <div>Contact</div>
+    <Section 
+      id="contact"
+      crosses
+    >
+      <div className="container h-screen">
+        Contact
+      </div>
+    </Section>
   )
 }
 

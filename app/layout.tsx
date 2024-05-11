@@ -1,15 +1,12 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { DM_Sans } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const dmSans = DM_Sans({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Zach Eggert",
   description: "Zach's portfolio",
-  // icons: {
-  //   icon: ""
-  // }
 };
 
 export default function RootLayout({
@@ -19,7 +16,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} bg-dark-1`}>{children}</body>
+      <body className={`${dmSans.className} bg-dark-1`}>{children}</body>
     </html>
   );
 }

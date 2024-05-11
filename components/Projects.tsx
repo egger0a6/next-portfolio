@@ -1,6 +1,15 @@
+import Section from "./design/Section";
+
 const Projects = () => {
   return (
-    <div>Projects</div>
+    <Section 
+      id="projects"
+      crosses
+    >
+      <div className="container h-screen">
+        Projects
+      </div>
+    </Section>
   )
 }
 
