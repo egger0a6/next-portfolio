@@ -2,7 +2,7 @@ import Section from "./design/Section";
 
 const Projects = () => {
   return (
-    <Section 
+    <Section
       id="projects"
       crosses
     >

@@ -17,6 +17,8 @@ const Footer = () => {
   }
 
   useEffect(() => {
+    document.getElementById("footer")?.removeAttribute("data-section")
+
     const linkYAnimation = animate(
       "#link",
       {y: [0 , -14]},
@@ -41,6 +43,7 @@ const Footer = () => {
 
   return (
     <Section 
+      id="footer"
       crosses
       className="!px-0 !py-10"
     >

@@ -2,7 +2,7 @@
 
 import { navigation } from "@/constants";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useHash } from "react-hash-control";
 import { disablePageScroll, enablePageScroll} from "scroll-lock";
 import { Button } from "./ui/button";
@@ -11,7 +11,33 @@ import { IoClose } from "react-icons/io5";
 
 const Navbar = () => {
   const pathname = useHash();
+  const [activeSection, setActiveSection] = useState("");
   const [openNavigation, setOpenNavigation] = useState<boolean>(false);
+  const observer = useRef<IntersectionObserver>();
+
+  const options = {
+    rootMargin: "0px",
+    threshold: 0.66,
+  }
+
+  useEffect(() => {
+    observer.current = new IntersectionObserver((entries) => {
+      const visibleSection = entries.find((entry) => entry.isIntersecting)?.target;
+
+      if (visibleSection) setActiveSection(visibleSection.id);
+    }, options);
+
+    const sections = document.querySelectorAll("[data-section]")
+    sections.forEach((section) => {
+      observer.current?.observe(section);
+    });
+
+    return () => {
+      sections.forEach((section) => {
+        observer.current?.unobserve(section);
+      })
+    }
+  }, []);
 
   const toggleNavigation = () => {
     if (openNavigation) {
@@ -49,7 +75,7 @@ const Navbar = () => {
                 key={item.id}
                 href={item.url}
                 onClick={handleClick}
-                className={`block font-code text-2xl uppercase transition-colors hover:text-red-2 px-6 py-6 md:py-8 lg:-mr-0.25 lg:text-lg lg:font-semibold ${item.url.slice(1) === pathname ? "z-5 lg:text-light-6" : "lg:text-light-1"} lg:leading-5 lg:hover:text-light-6 xl:px-12`}
+                className={`block font-code text-2xl uppercase transition-colors hover:text-red-2 px-6 py-6 md:py-8 lg:-mr-0.25 lg:text-lg lg:font-semibold ${(item.url.slice(1) === activeSection) ? "z-5 lg:text-light-6" : "lg:text-light-1"} lg:leading-5 lg:hover:text-light-6 xl:px-12`}
               >
                 {item.title}
               </a>
