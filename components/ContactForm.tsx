@@ -8,8 +8,6 @@ const ContactForm = () => {
     register,
     handleSubmit,
     reset,
-    watch,
-    control,
     setValue,
     formState: { errors, isSubmitSuccessful, isSubmitting, isValid },
   } = useForm({
@@ -67,7 +65,7 @@ const ContactForm = () => {
             type="text"
             placeholder="Full Name"
             autoComplete="false"
-            className={`w-full px-4 py-3 border placeholder:text-light-1 rounded-sm outline-none focus:ring-2 bg-dark-4 ${
+            className={`contact-input ${
               errors.name
                 ? "border-red-2 ring-red-1"
                 : "border-transparent focus:border-light-1 ring-light-6"
@@ -91,7 +89,7 @@ const ContactForm = () => {
             type="email"
             placeholder="Email Address"
             autoComplete="false"
-            className={`w-full px-4 py-3 border placeholder:text-light-1 rounded-sm outline-none focus:ring-2 bg-dark-4 ${
+            className={`contact-input ${
               errors.email
                 ? "border-red-2 ring-red-1"
                 : "border-transparent focus:border-light-1 ring-light-6"
@@ -112,7 +110,7 @@ const ContactForm = () => {
         <div>
           <textarea
             placeholder="Let me know how I can help!"
-            className={`w-full px-4 py-3 border placeholder:text-light-1 rounded-sm outline-none h-36 focus:ring-2 bg-dark-4 ${
+            className={`contact-input h-36 ${
               errors.message
                 ? "border-red-2 ring-red-1"
                 : "border-transparent focus:border-light-1 ring-light-6"
@@ -136,12 +134,12 @@ const ContactForm = () => {
             ref={hCaptchaRef}
             theme="dark"
           />
-          <div className="absolute top-0 left-0 w-full h-full border-4 border-dark-4"></div>
+          <div className="absolute top-0 left-0 w-full h-full border-4 border-dark-4 pointer-events-none"></div>
         </div>
         
         <button
           type="submit"
-          className="w-full px-7 py-4 font-semibold transition-colors bg-dark-4 rounded-sm hover:bg-dark-6 focus:outline-none focus:ring-2 focus:ring-light-6">
+          className="group/btn relative w-full px-7 py-4 font-semibold transition-colors bg-dark-4 rounded-sm hover:bg-dark-6 focus:outline-none focus:ring-2 focus:ring-light-6">
           {isSubmitting ? (
             <svg
               className="w-5 h-5 mx-auto"
@@ -163,6 +161,7 @@ const ContactForm = () => {
           ) : (
             "Send Message"
           )}
+          <BottomGradient />
         </button>
         </div>
 
@@ -183,3 +182,12 @@ const ContactForm = () => {
 }
 
 export default ContactForm;
+
+const BottomGradient = () => {
+  return (
+    <>
+      <span className="group-hover/btn:opacity-100 block transition duration-500 opacity-0 absolute h-px w-full -bottom-px inset-x-0 bg-gradient-to-r from-transparent via-red-1 to-transparent" />
+      <span className="group-hover/btn:opacity-100 blur-sm block transition duration-500 opacity-0 absolute h-px w-1/2 mx-auto -bottom-px inset-x-10 bg-gradient-to-r from-transparent via-red-2 to-transparent" />
+    </>
+  );
+};
