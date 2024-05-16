@@ -15,11 +15,11 @@ const ContactForm = () => {
   });
   const [isSuccess, setIsSuccess] = useState(false);
   const [message, setMessage] = useState("");
-  const hCaptchaRef = useRef(null);
+  const hCaptchaRef = useRef<HCaptcha>(null);
 
   const apiKey = process.env.NEXT_PUBLIC_WEB3_API_ACCESS_KEY!;
 
-  const onHCaptchaChange = (token) => {
+  const onHCaptchaChange = (token: string) => {
     setValue("h-captcha-response", token, { shouldValidate: true });
   };
 
