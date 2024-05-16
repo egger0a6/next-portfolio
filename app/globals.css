@@ -12,3 +12,9 @@
 * {
   scroll-behavior: smooth;
 }
+
+@layer utilities {
+  .contact-input {
+    @apply 
+  }
+}

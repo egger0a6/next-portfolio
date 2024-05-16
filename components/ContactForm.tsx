@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import useWeb3Forms from "@web3forms/react";
+import HCaptcha from "@hcaptcha/react-hcaptcha";
 
 const ContactForm = () => {
   const {
@@ -10,14 +11,19 @@ const ContactForm = () => {
     watch,
     control,
     setValue,
-    formState: { errors, isSubmitSuccessful, isSubmitting },
+    formState: { errors, isSubmitSuccessful, isSubmitting, isValid },
   } = useForm({
     mode: "onTouched",
   });
   const [isSuccess, setIsSuccess] = useState(false);
-  const [message, setMessage] = useState(false);
+  const [message, setMessage] = useState("");
+  const hCaptchaRef = useRef(null);
 
-  const apiKey = process.env.WEB3_API_ACCESS_KEY!;
+  const apiKey = process.env.NEXT_PUBLIC_WEB3_API_ACCESS_KEY!;
+
+  const onHCaptchaChange = (token) => {
+    setValue("h-captcha-response", token, { shouldValidate: true });
+  };
 
   const { submit: onSubmit } = useWeb3Forms({
     access_key: apiKey,
@@ -29,6 +35,10 @@ const ContactForm = () => {
       setIsSuccess(true);
       setMessage(msg);
       reset();
+      hCaptchaRef.current?.resetCaptcha();
+      setTimeout(() => {
+        setMessage("");
+      }, 6000);
     },
     onError: (msg, data) => {
       setIsSuccess(false);
@@ -36,40 +46,43 @@ const ContactForm = () => {
     },
   });
 
+  console.log(isValid)
+
   return (
-    <>
-      <form onSubmit={handleSubmit(onSubmit)} className="my-10">
+    <div className="flex flex-col w-full mt-14">
+      <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-2">
         <input
           type="checkbox"
           id=""
           className="hidden"
-          style={{ display: "none" }}
           {...register("botcheck")}
         />
 
-        <div className="mb-5">
+        <div>
+          <label htmlFor="full_name" className="sr-only">
+            Full Name
+          </label>
           <input
+            id="full_name"
             type="text"
             placeholder="Full Name"
             autoComplete="false"
-            className={`w-full px-4 py-3 border placeholder:text-light-1 rounded-md outline-none focus:ring-2 bg-dark-1 ${
+            className={`w-full px-4 py-3 border placeholder:text-light-1 rounded-sm outline-none focus:ring-2 bg-dark-4 ${
               errors.name
                 ? "border-red-2 ring-red-1"
-                : "border-light-3 focus:border-light-1 ring-light-6"
+                : "border-transparent focus:border-light-1 ring-light-6"
             }`}
             {...register("name", {
               required: "Full name is required",
               maxLength: 80,
             })}
           />
-          {errors.name && (
-            <div className="mt-1 text-red-600">
-              <small>{errors.name.message}</small>
-            </div>
-          )}
+          <div className={`mt-1 text-red-2 opacity-0 ${errors.name ? "opacity-100" : "opacity-0 cursor-default"}`}>
+            <small>{errors.name ? errors.name.message : "."}</small>
+          </div>
         </div>
 
-        <div className="mb-5">
+        <div>
           <label htmlFor="email_address" className="sr-only">
             Email Address
           </label>
@@ -77,12 +90,11 @@ const ContactForm = () => {
             id="email_address"
             type="email"
             placeholder="Email Address"
-            name="email"
             autoComplete="false"
-            className={`w-full px-4 py-3 border-2 placeholder:text-light-1 dark:text-white rounded-md outline-none dark:placeholder:text-gray-200 dark:bg-gray-900   focus:ring-4  ${
+            className={`w-full px-4 py-3 border placeholder:text-light-1 rounded-sm outline-none focus:ring-2 bg-dark-4 ${
               errors.email
-                ? "border-red-600 focus:border-red-600 ring-red-100 dark:ring-0"
-                : "border-gray-300 focus:border-gray-600 ring-gray-100 dark:border-gray-600 dark:focus:border-white dark:ring-0"
+                ? "border-red-2 ring-red-1"
+                : "border-transparent focus:border-light-1 ring-light-6"
             }`}
             {...register("email", {
               required: "Enter your email",
@@ -92,40 +104,47 @@ const ContactForm = () => {
               },
             })}
           />
-          {errors.email && (
-            <div className="mt-1 text-red-600">
-              <small>{errors.email.message}</small>
-            </div>
-          )}
+          <div className={`mt-1 text-red-2 opacity-0 ${errors.email ? "opacity-100" : "opacity-0 cursor-default"}`}>
+            <small>{errors.email ? errors.email.message : "."}</small>
+          </div>
         </div>
 
-        <div className="mb-3">
+        <div>
           <textarea
-            name="message"
-            placeholder="Your Message"
-            className={`w-full px-4 py-3 border-2 placeholder:text-gray-800 dark:text-white dark:placeholder:text-gray-200 dark:bg-gray-900   rounded-md outline-none  h-36 focus:ring-4  ${
+            placeholder="Let me know how I can help!"
+            className={`w-full px-4 py-3 border placeholder:text-light-1 rounded-sm outline-none h-36 focus:ring-2 bg-dark-4 ${
               errors.message
-                ? "border-red-600 focus:border-red-600 ring-red-100 dark:ring-0"
-                : "border-gray-300 focus:border-gray-600 ring-gray-100 dark:border-gray-600 dark:focus:border-white dark:ring-0"
+                ? "border-red-2 ring-red-1"
+                : "border-transparent focus:border-light-1 ring-light-6"
             }`}
             {...register("message", {
               required: "Enter your Message",
             })}
           />
-          {errors.message && (
-            <div className="mt-1 text-red-600">
-              {" "}
-              <small>{errors.message.message}</small>
-            </div>
-          )}
+          <div className={`mt-1 text-red-2 opacity-0 ${errors.message ? "opacity-100" : "opacity-0 cursor-default"}`}>
+            <small>{errors.message ? errors.message.message : "."}</small>
+          </div>
         </div>
 
+        <div className="flex flex-col sm:flex-row items-center gap-7">
+
+        <div className={`rounded-sm ring-0 ring-dark-4 transition-transform duration-300 ease-out ${isValid ? "scale-100" : "scale-0"}`}>
+          <HCaptcha 
+            sitekey="50b2fe65-b00b-4b9e-ad62-3ba471098be2"
+            reCaptchaCompat={false}
+            onVerify={onHCaptchaChange}
+            ref={hCaptchaRef}
+            theme="dark"
+          />
+          <div className="absolute top-0 left-0 w-full h-full border-4 border-dark-4"></div>
+        </div>
+        
         <button
           type="submit"
-          className="w-full px-7 py-4 font-semibold transition-colors bg-dark-1 rounded-md hover:bg-dark-3 focus:outline-none focus:ring-offset-2 focus:ring focus:ring-gray-200 px-7">
+          className="w-full px-7 py-4 font-semibold transition-colors bg-dark-4 rounded-sm hover:bg-dark-6 focus:outline-none focus:ring-2 focus:ring-light-6">
           {isSubmitting ? (
             <svg
-              className="w-5 h-5 mx-auto text-white dark:text-black animate-spin"
+              className="w-5 h-5 mx-auto"
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24">
@@ -145,19 +164,21 @@ const ContactForm = () => {
             "Send Message"
           )}
         </button>
+        </div>
+
       </form>
 
       {isSubmitSuccessful && isSuccess && (
-        <div className="mt-3 text-sm text-center text-green-500">
-          {message || "Success. Message sent successfully"}
+        <div className="mt-3 text-sm text-center text-green-400">
+          {message}
         </div>
       )}
       {isSubmitSuccessful && !isSuccess && (
-        <div className="mt-3 text-sm text-center text-red-500">
+        <div className="mt-3 text-sm text-center text-red-2">
           {message || "Something went wrong. Please try later."}
         </div>
       )}
-    </>
+    </div>
   );
 }
 
