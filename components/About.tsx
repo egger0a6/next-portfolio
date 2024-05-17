@@ -5,6 +5,7 @@ const About = () => {
     <Section
       id="about"
       crosses
+      className=""
     >
       <div className="container h-screen">
         About

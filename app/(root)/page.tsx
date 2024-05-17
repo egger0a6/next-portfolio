@@ -10,19 +10,23 @@ const Home = () => {
     <div>
       <Hero />
       <div className="relative">
-        <div className="absolute w-full inset-0 h-full container pb-[176px]">
+        <div className="absolute inset-0 pb-[176px] md:mx-5 lg:mx-7.5 xl:mx-10">
+          
           <SparklesCore
             id="tsparticlesfullpage"
             background="transparent"
             minSize={0.4}
             maxSize={1.4}
             particleDensity={20}
-            className="w-full h-full z-0"
+            className="w-full h-full"
             particleColor="#EA5454"
             //"#FF204E"
             speed={2}
           />
         </div>
+          <div className="absolute inset-0 pb-[176px] md:mx-5 lg:mx-7.5 xl:mx-10">
+            <div className="bg-dot-neutral-800 w-full h-full"></div>
+          </div>
         <About />
         <Projects />
         <Contact />
