@@ -11,6 +11,7 @@ const ContactForm = () => {
     handleSubmit,
     reset,
     setValue,
+    formState,
     formState: { errors, isSubmitSuccessful, isSubmitting, isValid },
   } = useForm({
     mode: "onTouched",
@@ -23,6 +24,8 @@ const ContactForm = () => {
 
   const apiKey = process.env.NEXT_PUBLIC_WEB3_API_ACCESS_KEY!;
 
+  console.log(isSubmitSuccessful)
+
   useEffect(() => {
     setIsClient(true);
   }, []);
@@ -34,8 +37,8 @@ const ContactForm = () => {
   const handleClick = () => {
     animate(
       scope.current,
-      {scale: [0.9, 1]},
-      {duration: 0.5, type: "keyframes", mass: 2}
+      { scale: [0.9, 1] },
+      { duration: 0.5, type: "keyframes", mass: 2 }
     );
   }
 
@@ -51,7 +54,7 @@ const ContactForm = () => {
       reset();
       hCaptchaRef.current?.resetCaptcha();
       setTimeout(() => {
-        setMessage("");
+        setMessage(".");
       }, 6000);
     },
     onError: (msg, data) => {
@@ -82,15 +85,15 @@ const ContactForm = () => {
             placeholder="Full Name"
             autoComplete="false"
             className={`contact-input ${errors.name
-                ? "border-red-2 ring-red-1"
-                : "border-transparent focus:border-light-1 ring-light-6"
+              ? "border-red-2 ring-red-1"
+              : "border-transparent focus:border-light-1 ring-light-6"
               }`}
             {...register("name", {
               required: "Full name is required",
               maxLength: 80,
             })}
           />
-          <div className={`mt-1 text-red-2 opacity-0 ${errors.name ? "opacity-100" : "opacity-0 cursor-default"}`}>
+          <div className={`mt-1 text-red-2 cursor-default ${errors.name ? "visible" : "invisible"}`}>
             <small>{errors.name ? errors.name.message : "."}</small>
           </div>
         </div>
@@ -105,8 +108,8 @@ const ContactForm = () => {
             placeholder="Email Address"
             autoComplete="false"
             className={`contact-input ${errors.email
-                ? "border-red-2 ring-red-1"
-                : "border-transparent focus:border-light-1 ring-light-6"
+              ? "border-red-2 ring-red-1"
+              : "border-transparent focus:border-light-1 ring-light-6"
               }`}
             {...register("email", {
               required: "Enter your email",
@@ -116,7 +119,7 @@ const ContactForm = () => {
               },
             })}
           />
-          <div className={`mt-1 text-red-2 opacity-0 ${errors.email ? "opacity-100" : "opacity-0 cursor-default"}`}>
+          <div className={`mt-1 text-red-2 cursor-default ${errors.email ? "visible" : "invisible"}`}>
             <small>{errors.email ? errors.email.message : "."}</small>
           </div>
         </div>
@@ -125,14 +128,14 @@ const ContactForm = () => {
           <textarea
             placeholder="Let me know how I can help!"
             className={`contact-input h-36 ${errors.message
-                ? "border-red-2 ring-red-1"
-                : "border-transparent focus:border-light-1 ring-light-6"
+              ? "border-red-2 ring-red-1"
+              : "border-transparent focus:border-light-1 ring-light-6"
               }`}
             {...register("message", {
               required: "Enter your Message",
             })}
           />
-          <div className={`mt-1 text-red-2 opacity-0 ${errors.message ? "opacity-100" : "opacity-0 cursor-default"}`}>
+          <div className={`mt-1 text-red-2 cursor-default ${errors.message ? "visible" : "invisible"}`}>
             <small>{errors.message ? errors.message.message : "."}</small>
           </div>
         </div>
@@ -182,18 +185,26 @@ const ContactForm = () => {
         </div>
       </form>
 
-      {isSubmitSuccessful && isSuccess && (
-        <div className="mt-3 text-sm text-center text-green-400">
-          {message}
-        </div>
-      )}
-      {isSubmitSuccessful && !isSuccess && (
-        <div className="mt-3 text-sm text-center text-red-2">
-          {message || "Something went wrong. Please try later."}
-        </div>
-      )}
-
-      
+      <div className={`mt-3 cursor-default ${isSubmitSuccessful ? "visible" : "invisible"}`}>
+        {(isSubmitSuccessful && isSuccess)
+          ? (
+            <div className={`text-sm text-center text-green-400 ${message === "." ? "invisible" : "visible"}`}>
+              {message}
+            </div>
+          )
+          : (isSubmitSuccessful && !isSuccess)
+            ? (
+              <div className="text-sm text-center text-red-2">
+                {message || "Something went wrong. Please try later."}
+              </div>
+            )
+            : (
+              <div className="text-sm text-center">
+                {"."}
+              </div>
+            )
+        }
+      </div>
     </div>
   );
 }
