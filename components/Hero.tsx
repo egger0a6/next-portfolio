@@ -1,6 +1,8 @@
 "use client";
 
+import { IoIosArrowDown } from "react-icons/io";
 import Section from "./design/Section"
+import MagicButton from "./ui/MagicButton";
 import { HeroHighlight, Highlight } from "./ui/hero-highlight";
 import { motion } from "framer-motion";
 
@@ -17,22 +19,22 @@ const Hero = () => {
       <div className="relative h-screen md:mx-5 lg:mx-7.5 xl:mx-10">
         <HeroHighlight containerClassName="z-0">
           <motion.h1
-          initial={{
-            opacity: 0,
-            y: 20,
-          }}
-          animate={{
-            opacity: 1,
-            y: [20, -5, 0],
-          }}
-          transition={{
-            duration: 0.5,
-            ease: [0.4, 0.0, 0.2, 1],
-          }}
+            initial={{
+              opacity: 0,
+              y: 20,
+            }}
+            animate={{
+              opacity: 1,
+              y: [20, -5, 0],
+            }}
+            transition={{
+              duration: 0.5,
+              ease: [0.4, 0.0, 0.2, 1],
+            }}
           >
             <div className="z-1 max-w-[62rem] mx-auto text-center">
               <h1 className="h1">
-                Hello, I&apos;m&nbsp; 
+                Hello, I&apos;m&nbsp;
                 <span className="bg-gradient-to-r from-red-1 to-red-2 text-transparent bg-clip-text">Zach</span>
               </h1>
               <h2 className="h2">
@@ -44,6 +46,12 @@ const Hero = () => {
           </motion.h1>
         </HeroHighlight>
       </div>
+      <a href="#about" className="absolute top-[67%] left-[50%] -ml-[94.1415px]">
+        <MagicButton
+          title="View my work"
+          icon={<IoIosArrowDown />}
+        />
+      </a>
     </Section>
   )
 }

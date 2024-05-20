@@ -38,7 +38,7 @@ const ContactForm = () => {
     animate(
       scope.current,
       {scale: [0.9, 1]},
-      {duration: 0.6, type: "spring"}
+      {duration: 0.5, type: "keyframes", mass: 2}
     );
   }
 
@@ -206,7 +206,7 @@ const ContactForm = () => {
         </div>
       )}
 
-      <div className="relative flex flex-col mt-36 gap-2 w-56 justify-center items-center mx-auto">
+      <div className="relative flex flex-col mt-36 gap-2 w-48 justify-center items-center mx-auto">
         <p className="text-center text-sm text-light-4 font-semibold">Only need my email?</p>
         <ShimmerButton 
           title={copied ? "Email copied!" : "Copy my email"}
