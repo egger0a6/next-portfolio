@@ -3,9 +3,7 @@ import { useForm } from "react-hook-form";
 import useWeb3Forms from "@web3forms/react";
 import HCaptcha from "@hcaptcha/react-hcaptcha";
 import { motion, useAnimate } from "framer-motion";
-import ShimmerButton from "./ui/ShimmerButton";
 import Loader from "./design/Loader";
-import { MdContentCopy } from "react-icons/md";
 
 const ContactForm = () => {
   const {
@@ -19,7 +17,6 @@ const ContactForm = () => {
   });
   const [isClient, setIsClient] = useState(false);
   const [scope, animate] = useAnimate();
-  const [copied, setCopied] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [message, setMessage] = useState("");
   const hCaptchaRef = useRef<HCaptcha>(null);
@@ -40,16 +37,6 @@ const ContactForm = () => {
       {scale: [0.9, 1]},
       {duration: 0.5, type: "keyframes", mass: 2}
     );
-  }
-
-  const handleCopy = () => {
-    const email = "zacheggert37@gmail.com";
-    navigator.clipboard.writeText(email);
-    setCopied(true);
-
-    setTimeout(() => {
-      setCopied(false);
-    }, 6000);
   }
 
   const { submit: onSubmit } = useWeb3Forms({
@@ -206,15 +193,7 @@ const ContactForm = () => {
         </div>
       )}
 
-      <div className="relative flex flex-col mt-36 gap-2 w-48 justify-center items-center mx-auto">
-        <p className="text-center text-sm text-light-4 font-semibold">Only need my email?</p>
-        <ShimmerButton 
-          title={copied ? "Email copied!" : "Copy my email"}
-          icon={copied ? "" : <MdContentCopy />}
-          handleClick={handleCopy}
-          otherClasses="py-4 font-semibold w-full"
-        />
-      </div>
+      
     </div>
   );
 }

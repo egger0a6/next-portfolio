@@ -3,9 +3,22 @@
 import { useEffect, useState } from "react";
 import Section from "./design/Section";
 import ContactForm from "./ContactForm";
+import ShimmerButton from "./ui/ShimmerButton";
+import { MdContentCopy } from "react-icons/md";
 
 const Contact = () => {
   const [footerHeight, setFooterHeight] = useState<number>();
+  const [copied, setCopied] = useState(false);
+
+  const handleCopy = () => {
+    const email = "zacheggert37@gmail.com";
+    navigator.clipboard.writeText(email);
+    setCopied(true);
+
+    setTimeout(() => {
+      setCopied(false);
+    }, 6000);
+  }
 
   // useEffect(() => {
   //   let footerHeight = document.getElementById("footer")?.getBoundingClientRect().height;
@@ -13,7 +26,7 @@ const Contact = () => {
   // }, []);
 
   return (
-    <Section 
+    <Section
       id="contact"
       crosses
     >
@@ -24,6 +37,16 @@ const Contact = () => {
           {/* <h1 className="h1 text-center">Contact</h1>
           <p className="text-center text-2xl">Let's Connect</p> */}
           <ContactForm />
+
+          <div className="flex flex-col mt-36 gap-2 w-48 justify-center items-center mx-auto">
+            <p className="text-center text-sm text-light-4 font-semibold">Only need my email?</p>
+            <ShimmerButton
+              title={copied ? "Email copied!" : "Copy my email"}
+              icon={copied ? "" : <MdContentCopy />}
+              handleClick={handleCopy}
+              otherClasses="py-4 font-semibold w-full"
+            />
+          </div>
         </div>
       </div>
     </Section>
