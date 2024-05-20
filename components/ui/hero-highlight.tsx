@@ -57,7 +57,6 @@ export const HeroHighlight = ({
       />
 
       <div className={cn("relative z-20", className)}>{children}</div>
-      {/* <div className="absolute pointer-events-none inset-0 flex items-center justify-center bg-dark-1 [mask-image:radial-gradient(ellipse_at_center,transparent,#15181E)] "></div> */}
     </div>
   );
 };

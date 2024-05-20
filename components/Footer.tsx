@@ -3,8 +3,8 @@
 import { socials } from "@/constants";
 import Section from "./design/Section";
 import Image from "next/image";
-import { backIn, backInOut, backOut, circIn, circInOut, circOut, easeIn, easeInOut, easeOut, motion, stagger, useAnimate, useAnimationControls, useInView, useMotionValue } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
+import { backInOut, circInOut, easeOut, motion, stagger, useAnimate, useInView} from "framer-motion";
+import { useEffect, useState } from "react";
 
 const Footer = () => {
   const [scope, animate] = useAnimate();
@@ -75,7 +75,6 @@ const Footer = () => {
           ))}
         </div>
         <p className="font-code text-sm">© {new Date().getFullYear()}. Zach Eggert</p>
-        {/* <a target="_blank" href="https://icons8.com/icon/OBMhWEebAWe9/slack-new">slack</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a> */}
       </div>
     </Section>
   )

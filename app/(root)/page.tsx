@@ -11,7 +11,6 @@ const Home = () => {
       <Hero />
       <div className="relative">
         <div className="absolute inset-0 pb-[176px] md:mx-5 lg:mx-7.5 xl:mx-10">
-          
           <SparklesCore
             id="tsparticlesfullpage"
             background="transparent"
@@ -24,9 +23,9 @@ const Home = () => {
             speed={2}
           />
         </div>
-          <div className="absolute inset-0 pb-[176px] md:mx-5 lg:mx-7.5 xl:mx-10">
-            <div className="bg-dot-neutral-800 w-full h-full"></div>
-          </div>
+        <div className="absolute inset-0 pb-[176px] md:mx-5 lg:mx-7.5 xl:mx-10">
+          <div className="bg-dot-neutral-800 w-full h-full"></div>
+        </div>
         <About />
         <Projects />
         <Contact />

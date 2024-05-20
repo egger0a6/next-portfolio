@@ -18,6 +18,7 @@ export const navigation = [
   },
 ];
 
+//TODO finish adding link urls (remove slack maybe)
 export const socials = [
   {
     id: "0",
@@ -29,18 +30,18 @@ export const socials = [
     id: "1",
     title: "GitHub",
     iconUrl: github,
-    url: "#",
+    url: "https://github.com/egger0a6",
   },
   {
     id: "2",
     title: "email",
     iconUrl: email,
-    url: "#",
+    url: "mailto:zacheggert37@gmail.com",
   },
   {
     id: "3",
     title: "slack",
     iconUrl: slack,
-    url: "#",
+    url: "https://slack.com/connect",
   },
 ];
