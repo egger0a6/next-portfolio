@@ -11,7 +11,6 @@ const ContactForm = () => {
     handleSubmit,
     reset,
     setValue,
-    formState,
     formState: { errors, isSubmitSuccessful, isSubmitting, isValid },
   } = useForm({
     mode: "onTouched",
@@ -94,7 +93,7 @@ const ContactForm = () => {
             })}
           />
           <div className={`mt-1 text-red-2 cursor-default ${errors.name ? "visible" : "invisible"}`}>
-            <small>{errors.name ? errors.name.message : "."}</small>
+            <small>{errors.name ? errors.name.message?.toString() : "."}</small>
           </div>
         </div>
 
@@ -120,7 +119,7 @@ const ContactForm = () => {
             })}
           />
           <div className={`mt-1 text-red-2 cursor-default ${errors.email ? "visible" : "invisible"}`}>
-            <small>{errors.email ? errors.email.message : "."}</small>
+            <small>{errors.email ? errors.email.message?.toString() : "."}</small>
           </div>
         </div>
 
@@ -136,7 +135,7 @@ const ContactForm = () => {
             })}
           />
           <div className={`mt-1 text-red-2 cursor-default ${errors.message ? "visible" : "invisible"}`}>
-            <small>{errors.message ? errors.message.message : "."}</small>
+            <small>{errors.message ? errors.message.message?.toString() : "."}</small>
           </div>
         </div>
 

@@ -3,14 +3,12 @@
 import { navigation } from "@/constants";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
-import { useHash } from "react-hash-control";
 import { disablePageScroll, enablePageScroll} from "scroll-lock";
 import { Button } from "./ui/button";
 import { HiBars2 } from "react-icons/hi2";
 import { IoClose } from "react-icons/io5";
 
 const Navbar = () => {
-  const pathname = useHash();
   const [activeSection, setActiveSection] = useState("");
   const [openNavigation, setOpenNavigation] = useState<boolean>(false);
   const observer = useRef<IntersectionObserver>();
