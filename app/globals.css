@@ -18,3 +18,155 @@
     @apply w-full px-4 py-3 border placeholder:text-light-1 rounded-md outline-none focus:ring-2 bg-dark-4
   }
 }
+
+/* About section tech stack rotations */
+
+/* outer ring */
+.rotate-36 {
+  @apply rotate-[36deg];
+}
+
+.rotate-72 {
+  @apply rotate-[72deg];
+}
+
+.rotate-108 {
+  @apply rotate-[108deg];
+}
+
+.rotate-144 {
+  @apply rotate-[144deg];
+}
+
+.rotate-180 {
+  @apply rotate-[180deg];
+}
+
+.rotate-216 {
+  @apply rotate-[216deg];
+}
+
+.rotate-252 {
+  @apply rotate-[252deg];
+}
+
+.rotate-288 {
+  @apply rotate-[288deg];
+}
+
+.rotate-324 {
+  @apply rotate-[324deg];
+}
+
+
+/* icon divs */
+.-rotate-36 {
+  @apply rotate-[-36deg];
+}
+
+.-rotate-72 {
+  @apply rotate-[-72deg];
+}
+
+.-rotate-108 {
+  @apply rotate-[-108deg];
+}
+
+.-rotate-144 {
+  @apply rotate-[-144deg];
+}
+
+.-rotate-180 {
+  @apply rotate-[-180deg];
+}
+
+.-rotate-216 {
+  @apply rotate-[-216deg];
+}
+
+.-rotate-252 {
+  @apply rotate-[-252deg];
+}
+
+.-rotate-288 {
+  @apply rotate-[-288deg];
+}
+
+.-rotate-324 {
+  @apply rotate-[-324deg];
+}
+
+/* inner ring */
+.rotate-5 {
+  @apply rotate-[5deg];
+}
+
+.rotate-45 {
+  @apply rotate-[45deg];
+}
+
+.rotate-85 {
+  @apply rotate-[85deg];
+}
+
+.rotate-125 {
+  @apply rotate-[125deg];
+}
+
+.rotate-165 {
+  @apply rotate-[165deg];
+}
+
+.rotate-205 {
+  @apply rotate-[205deg];
+}
+
+.rotate-245 {
+  @apply rotate-[245deg];
+}
+
+.rotate-285 {
+  @apply rotate-[285deg];
+}
+
+.rotate-325 {
+  @apply rotate-[325deg];
+}
+
+
+/* icon divs */
+.-rotate-5 {
+  @apply rotate-[-5deg];
+}
+
+.-rotate-45 {
+  @apply rotate-[-45deg];
+}
+
+.-rotate-85 {
+  @apply rotate-[-85deg];
+}
+
+.-rotate-125 {
+  @apply rotate-[-125deg];
+}
+
+.-rotate-165 {
+  @apply rotate-[-165deg];
+}
+
+.-rotate-205 {
+  @apply rotate-[-205deg];
+}
+
+.-rotate-245 {
+  @apply rotate-[-245deg];
+}
+
+.-rotate-285 {
+  @apply rotate-[-285deg];
+}
+
+.-rotate-325 {
+  @apply rotate-[-325deg];
+}

@@ -46,7 +46,7 @@ export const socials = [
   },
 ];
 
-const techStack = [
+export const techStack = [
   {
     id: "0",
     title: "aws",

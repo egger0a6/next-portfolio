@@ -23,8 +23,6 @@ const ContactForm = () => {
 
   const apiKey = process.env.NEXT_PUBLIC_WEB3_API_ACCESS_KEY!;
 
-  console.log(isSubmitSuccessful)
-
   useEffect(() => {
     setIsClient(true);
   }, []);
