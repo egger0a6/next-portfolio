@@ -49,63 +49,63 @@ export const socials = [
 export const techStack = [
   {
     id: "0",
-    title: "aws",
-    icon: aws,
+    title: "python",
+    icon: python,
   },
   {
     id: "1",
-    title: "django",
-    icon: django,
-  },
-  {
-    id: "2",
-    title: "docker",
-    icon: docker,
-  },
-  {
-    id: "3",
-    title: "express",
-    icon: express,
-  },
-  {
-    id: "4",
-    title: "firebase",
-    icon: firebase,
-  },
-  {
-    id: "5",
-    title: "framer motion",
-    icon: fm,
-  },
-  {
-    id: "6",
-    title: "git",
-    icon: git,
-  },
-  {
-    id: "7",
-    title: "html",
-    icon: html,
-  },
-  {
-    id: "8",
     title: "java",
     icon: java,
   },
   {
-    id: "9",
+    id: "2",
+    title: "nextjs",
+    icon: nextjs,
+  },
+  {
+    id: "3",
+    title: "react",
+    icon: react,
+  },
+  {
+    id: "4",
     title: "javascript",
     icon: javascript,
   },
   {
-    id: "10",
+    id: "5",
+    title: "typescript",
+    icon: typescript,
+  },
+  {
+    id: "6",
+    title: "aws",
+    icon: aws,
+  },
+  {
+    id: "7",
+    title: "express",
+    icon: express,
+  },
+  {
+    id: "8",
     title: "mongodb",
     icon: mongodb,
   },
   {
+    id: "9",
+    title: "html",
+    icon: html,
+  },
+  {
+    id: "10",
+    title: "firebase",
+    icon: firebase,
+  },
+  {
     id: "11",
-    title: "nextjs",
-    icon: nextjs,
+    title: "framer motion",
+    icon: fm,
   },
   {
     id: "12",
@@ -114,32 +114,32 @@ export const techStack = [
   },
   {
     id: "13",
+    title: "django",
+    icon: django,
+  },
+  {
+    id: "14",
+    title: "docker",
+    icon: docker,
+  },
+  {
+    id: "15",
+    title: "git",
+    icon: git,
+  },
+  {
+    id: "16",
     title: "postgresql",
     icon: postgresql,
   },
   {
-    id: "14",
-    title: "python",
-    icon: python,
-  },
-  {
-    id: "15",
-    title: "react",
-    icon: react,
-  },
-  {
-    id: "16",
+    id: "17",
     title: "react-router",
     icon: reactRouter,
   },
   {
-    id: "17",
+    id: "18",
     title: "tailwindcss",
     icon: tailwindcss,
-  },
-  {
-    id: "18",
-    title: "typescript",
-    icon: typescript,
   },
 ];

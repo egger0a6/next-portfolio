@@ -16,7 +16,7 @@ const Hero = () => {
       customPaddings
       id="hero"
     >
-      <div className="relative h-screen md:mx-5 lg:mx-7.5 xl:mx-10">
+      <div className="relative h-screen max-h-screen md:mx-5 lg:mx-7.5 xl:mx-10">
         <HeroHighlight containerClassName="z-0">
           <motion.h1
             initial={{

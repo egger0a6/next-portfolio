@@ -18,6 +18,10 @@ const config = {
   prefix: "",
   theme: {
     extend: {
+      scale: {
+        "55": "0.55",
+        "60": "0.6",
+      },
       colors: {
         light: {
           1: "#888888",
