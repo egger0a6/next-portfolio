@@ -2,6 +2,7 @@ import wellfound from "./socials/wellfound.svg";
 import email from "./socials/email.svg";
 import linkedin from "./socials/linkedin.svg";
 import github from "./socials/github.svg";
+
 import aws from "./icons/aws.svg";
 import django from "./icons/django.svg";
 import docker from "./icons/docker.svg";
@@ -21,6 +22,9 @@ import react from "./icons/react.svg";
 import reactRouter from "./icons/react-router.svg";
 import tailwindcss from "./icons/tailwindcss.svg";
 import typescript from "./icons/typescript.svg";
+
+import curve1 from "./svg/curve-1.svg";
+import curve2 from "./svg/curve-2.svg";
 
 export {
   wellfound,
@@ -46,4 +50,6 @@ export {
   reactRouter,
   tailwindcss,
   typescript,
+  curve1,
+  curve2,
 };
