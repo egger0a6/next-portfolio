@@ -3,6 +3,8 @@ import Section from "./design/Section";
 import { techStack } from "@/constants";
 import { LeftCurve } from "./design/LeftCurve";
 import { RightCurve } from "./design/RightCurve";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "./ui/tooltip";
+import { AnimatedTooltip } from "./ui/AnimatedTooltip";
 
 const About = () => {
   return (
@@ -37,7 +39,6 @@ const About = () => {
             <p className="text-light-3 text-center text-base lg:text-lg -mb-24 sm:-mb-10 md:mb-6 lg:mb-12">
               I constantly try to improve my <span className="text-red-2">skills</span>
             </p>
-
             <div className="relative left-1/2 flex w-[37rem] aspect-square border border-dark-6 rounded-full -translate-x-1/2 scale-55 sm:scale-75 md:scale-90 xl:scale-100">
               <div className="relative flex w-[22rem] aspect-square m-auto border border-dark-6 rounded-full">
                 <div className="w-[8rem] aspect-square m-auto rounded-full border border-dark-6">
@@ -53,16 +54,17 @@ const About = () => {
                     {techStack.slice(0, 9).map((item, idx) => (
                       <li
                         key={item.id}
-                        className={`absolute top-0 left-1/2 h-1/2 -ml-[1.6rem] origin-bottom rotate-${idx * 40 + 5}`}
+                        className={`absolute top-0 left-1/2 h-1/2 -ml-[1.6rem] origin-bottom rotate-${idx * 40 + 5} z-10`}
                       >
-                        <div className={`relative -top-[1.6rem] flex w-[3.5rem] h-[3.5rem] bg-dark-6 border-2 border-light-2/50 rounded-xl -rotate-${idx * 40 + 5}`}>
-                          <Image
-                            src={item.icon}
-                            alt="icon"
-                            width={42}
-                            height={42}
-                            className="m-auto"
-                          />
+                        <div className={`relative items-center justify-center -top-[1.6rem] flex w-[3.5rem] h-[3.5rem] bg-dark-6 border-2 border-light-2/50 rounded-xl -rotate-${idx * 40 + 5}`}>
+                          <AnimatedTooltip item={item} width={42} height={42} />
+                          {/* <Image
+                              src={item.icon}
+                              alt="icon"
+                              width={42}
+                              height={42}
+                              className=""
+                            /> */}
                         </div>
                       </li>
                     ))}
@@ -94,7 +96,7 @@ const About = () => {
           </div>
         </div>
       </div>
-    </Section>
+    </Section >
   )
 }
 
