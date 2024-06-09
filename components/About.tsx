@@ -56,16 +56,25 @@ const About = () => {
                         key={item.id}
                         className={`absolute top-0 left-1/2 h-1/2 -ml-[1.6rem] origin-bottom rotate-${idx * 40 + 5} z-10`}
                       >
-                        <div className={`relative items-center justify-center -top-[1.6rem] flex w-[3.5rem] h-[3.5rem] bg-dark-6 border-2 border-light-2/50 rounded-xl -rotate-${idx * 40 + 5}`}>
-                          <AnimatedTooltip item={item} width={42} height={42} />
-                          {/* <Image
-                              src={item.icon}
-                              alt="icon"
-                              width={42}
-                              height={42}
-                              className=""
-                            /> */}
-                        </div>
+                        <TooltipProvider>
+                          <Tooltip delayDuration={200} >
+                            <div className={`relative items-center justify-center -top-[1.6rem] flex w-[3.5rem] h-[3.5rem] bg-dark-6 border-2 border-light-2/50 rounded-xl -rotate-${idx * 40 + 5}`}>
+                              {/* <AnimatedTooltip item={item} width={42} height={42} /> */}
+                              <TooltipTrigger>
+                                <Image
+                                  src={item.icon}
+                                  alt="icon"
+                                  width={42}
+                                  height={42}
+                                  className=""
+                                />
+                              </TooltipTrigger>
+                              <TooltipContent>
+                                {item.title}
+                              </TooltipContent>
+                            </div>
+                          </Tooltip>
+                        </TooltipProvider>
                       </li>
                     ))}
                   </ul>
@@ -77,15 +86,23 @@ const About = () => {
                     key={item.id}
                     className={`absolute top-0 left-1/2 h-1/2 -ml-[1.6rem] origin-bottom rotate-${idx * 36}`}
                   >
-                    <div className={`relative -top-[1.6rem] flex w-[3.7rem] h-[3.7rem] bg-dark-6 border-2 border-light-2/50 rounded-xl -rotate-${idx * 36}`}>
-                      <Image
-                        src={item.icon}
-                        alt="icon"
-                        width={44}
-                        height={44}
-                        className="m-auto"
-                      />
-                    </div>
+                    <TooltipProvider>
+                      <Tooltip delayDuration={200} >
+                        <div className={`relative items-center justify-center -top-[1.6rem] flex w-[3.7rem] h-[3.7rem] bg-dark-6 border-2 border-light-2/50 rounded-xl -rotate-${idx * 36}`}>
+                          <TooltipTrigger>
+                            <Image
+                              src={item.icon}
+                              alt="icon"
+                              width={44}
+                              height={44}
+                            />
+                          </TooltipTrigger>
+                          <TooltipContent>
+                            {item.title}
+                          </TooltipContent>
+                        </div>
+                      </Tooltip>
+                    </TooltipProvider>
                   </li>
                 ))}
               </ul>
