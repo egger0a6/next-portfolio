@@ -92,8 +92,6 @@ const Navbar = () => {
             : <HiBars2 />
           }
         </Button>
-
-        {/* TODO: Add light dark mode toggle */}
       </div>
     </div>
   )

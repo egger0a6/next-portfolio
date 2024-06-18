@@ -1,4 +1,4 @@
-import { aws, django, docker, email, express, firebase, fm, git, github, html, java, javascript, linkedin, mongodb, nextjs, nodejs, postgresql, python, react, reactRouter, tailwindcss, typescript, wellfound } from "@/public";
+import { aws, choomz, django, docker, email, express, firebase, fm, git, github, html, java, javascript, linkedin, mongodb, nextjs, nodejs, postgresql, python, react, reactRouter, tailwindcss, typescript, wellfound } from "@/public";
 
 export const navigation = [
   {
@@ -18,7 +18,7 @@ export const navigation = [
   },
 ];
 
-//TODO finish adding link urls
+//TODO finish adding link urls - Dice maybe?
 export const socials = [
   {
     id: "0",
@@ -141,5 +141,16 @@ export const techStack = [
     id: "18",
     title: "tailwindcss",
     icon: tailwindcss,
+  },
+];
+
+export const projects = [
+  {
+    id: "0",
+    title: " - Video Conferencing App",
+    description: "This app offers a straightforward video conferencing experience. Effortlessly connect with others using Choomz.",
+    liveUrl: "https://video-conference-clone.vercel.app/",
+    repoUrl: "https://github.com/egger0a6/video-conference-clone",
+    thumbnail:  choomz,
   },
 ];

@@ -29,8 +29,9 @@ const Contact = () => {
     <Section
       id="contact"
       crosses
+      className="sm:xtall:h-screen"
     >
-      <div className="container sm:h-screen p-16 lg:p-0">
+      <div className="container p-16 lg:p-0">
         <div className="flex flex-col min-w-[50%] max-w-[56rem] mx-auto flex-1">
           <h1 className="h1 text-center">Get in Touch</h1>
           <p className="text-center text-lg mt-4">Have a project idea or in need of a dev? I&apos;m just a couple clicks away.</p>

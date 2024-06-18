@@ -26,6 +26,8 @@ import typescript from "./icons/typescript.svg";
 import curve1 from "./svg/curve-1.svg";
 import curve2 from "./svg/curve-2.svg";
 
+import choomz from "./images/thumnails/choomz-thumbnail.png";
+
 export {
   wellfound,
   email,
@@ -52,4 +54,5 @@ export {
   typescript,
   curve1,
   curve2,
+  choomz,
 };

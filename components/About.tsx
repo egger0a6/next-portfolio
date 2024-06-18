@@ -11,7 +11,7 @@ const About = () => {
     <Section
       id="about"
       crosses
-      className="lg:h-screen lg:max-h-screen"
+      className="lg:tall:h-screen lg:tall:max-h-screen"
     >
       <div className="container">
         <div className="flex flex-col lg:flex-row">

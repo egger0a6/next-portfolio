@@ -18,6 +18,10 @@ const config = {
   prefix: "",
   theme: {
     extend: {
+      screens: {
+        "tall": {"raw": "(min-height: 970px)"},
+        "xtall": {"raw": "(min-height: 1050px)"},
+      },
       scale: {
         "55": "0.55",
         "60": "0.6",
