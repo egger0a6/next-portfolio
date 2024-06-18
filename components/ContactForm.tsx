@@ -4,6 +4,7 @@ import useWeb3Forms from "@web3forms/react";
 import HCaptcha from "@hcaptcha/react-hcaptcha";
 import { motion, useAnimate } from "framer-motion";
 import Loader from "./design/Loader";
+import BottomGradient from "./design/BottomGradient";
 
 const ContactForm = () => {
   const {
@@ -207,12 +208,3 @@ const ContactForm = () => {
 }
 
 export default ContactForm;
-
-const BottomGradient = () => {
-  return (
-    <>
-      <span className="group-hover/btn:opacity-100 block transition duration-500 opacity-0 absolute h-px w-full -bottom-px inset-x-0 bg-gradient-to-r from-transparent via-red-1 to-transparent" />
-      <span className="group-hover/btn:opacity-100 blur-sm block transition duration-500 opacity-0 absolute h-px w-1/2 mx-auto -bottom-px inset-x-10 bg-gradient-to-r from-transparent via-red-2 to-transparent" />
-    </>
-  );
-};

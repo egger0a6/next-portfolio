@@ -49,47 +49,47 @@ export const socials = [
 export const techStack = [
   {
     id: "0",
-    title: "python",
+    title: "Python",
     icon: python,
   },
   {
     id: "1",
-    title: "java",
+    title: "Java",
     icon: java,
   },
   {
     id: "2",
-    title: "nextjs",
+    title: "Next.js",
     icon: nextjs,
   },
   {
     id: "3",
-    title: "react",
+    title: "React",
     icon: react,
   },
   {
     id: "4",
-    title: "javascript",
+    title: "JavaScript",
     icon: javascript,
   },
   {
     id: "5",
-    title: "typescript",
+    title: "TypeScript",
     icon: typescript,
   },
   {
     id: "6",
-    title: "aws",
+    title: "AWS",
     icon: aws,
   },
   {
     id: "7",
-    title: "express",
+    title: "Express",
     icon: express,
   },
   {
     id: "8",
-    title: "mongodb",
+    title: "MongoDB",
     icon: mongodb,
   },
   {
@@ -99,52 +99,76 @@ export const techStack = [
   },
   {
     id: "10",
-    title: "firebase",
+    title: "Firebase",
     icon: firebase,
   },
   {
     id: "11",
-    title: "framer motion",
+    title: "Framer Motion",
     icon: fm,
   },
   {
     id: "12",
-    title: "nodejs",
+    title: "Node.js",
     icon: nodejs,
   },
   {
     id: "13",
-    title: "django",
+    title: "Django",
     icon: django,
   },
   {
     id: "14",
-    title: "docker",
+    title: "Docker",
     icon: docker,
   },
   {
     id: "15",
-    title: "git",
+    title: "Git",
     icon: git,
   },
   {
     id: "16",
-    title: "postgresql",
+    title: "PostgreSQL",
     icon: postgresql,
   },
   {
     id: "17",
-    title: "react-router",
+    title: "React Router",
     icon: reactRouter,
   },
   {
     id: "18",
-    title: "tailwindcss",
+    title: "Tailwind CSS",
     icon: tailwindcss,
   },
 ];
 
 export const projects = [
+  {
+    id: "0",
+    title: " - Video Conferencing App",
+    description: "This app offers a straightforward video conferencing experience. Effortlessly connect with others using Choomz.",
+    liveUrl: "https://video-conference-clone.vercel.app/",
+    repoUrl: "https://github.com/egger0a6/video-conference-clone",
+    thumbnail:  choomz,
+  },
+  {
+    id: "0",
+    title: " - Video Conferencing App",
+    description: "This app offers a straightforward video conferencing experience. Effortlessly connect with others using Choomz.",
+    liveUrl: "https://video-conference-clone.vercel.app/",
+    repoUrl: "https://github.com/egger0a6/video-conference-clone",
+    thumbnail:  choomz,
+  },
+  {
+    id: "0",
+    title: " - Video Conferencing App",
+    description: "This app offers a straightforward video conferencing experience. Effortlessly connect with others using Choomz.",
+    liveUrl: "https://video-conference-clone.vercel.app/",
+    repoUrl: "https://github.com/egger0a6/video-conference-clone",
+    thumbnail:  choomz,
+  },
   {
     id: "0",
     title: " - Video Conferencing App",
