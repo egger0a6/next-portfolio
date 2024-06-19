@@ -2,7 +2,7 @@
 
 import { navigation } from "@/constants";
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { disablePageScroll, enablePageScroll} from "scroll-lock";
 import { Button } from "./ui/button";
 import { HiBars2 } from "react-icons/hi2";
@@ -11,32 +11,39 @@ import { IoClose } from "react-icons/io5";
 const Navbar = () => {
   const [activeSection, setActiveSection] = useState("");
   const [openNavigation, setOpenNavigation] = useState<boolean>(false);
-  const observer = useRef<IntersectionObserver>();
 
-  const options = {
-    rootMargin: "-50px 0px -55%",
-    // threshold: 0.66,
-  }
+  const threshold = 0.6;
 
-  // console.log(activeSection)
   useEffect(() => {
-    observer.current = new IntersectionObserver((entries) => {
-      const visibleSection = entries.find((entry) => entry.isIntersecting)?.target;
-      console.log(entries)
+    document.getElementById("footer")?.removeAttribute("data-section");
+    const observers = [] as any;
+    const sections = document.querySelectorAll("[data-section]");
 
-      if (visibleSection) setActiveSection(visibleSection.id);
-    }, options);
+    sections.forEach((el) => {
+      const elHeight = el.getBoundingClientRect().height;
+      let th = threshold;
 
-    const sections = document.querySelectorAll("[data-section]")
-    sections.forEach((section) => {
-      observer.current?.observe(section);
+      if (elHeight > (window.innerHeight * threshold)) {
+        th = ((window.innerHeight * threshold) / elHeight) * threshold;
+      }
+
+      observers.push(new IntersectionObserver((entries) => {
+        const visibleSection = entries.find((entry) => entry.isIntersecting)?.target;
+        if (visibleSection) setActiveSection(visibleSection.id);
+      }, {threshold: th}).observe(el));
     });
 
     return () => {
-      sections.forEach((section) => {
-        observer.current?.unobserve(section);
-      })
-    }
+      observers?.forEach((observer: IntersectionObserver, idx: number) =>{
+        observer?.unobserve(sections[idx]);
+      });
+    };
+
+    // return () => {
+    //   sections.forEach((section) => {
+    //     observer.current?.unobserve(section);
+    //   })
+    // }
   }, []);
 
   const toggleNavigation = () => {

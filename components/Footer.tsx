@@ -17,8 +17,6 @@ const Footer = () => {
   }
 
   useEffect(() => {
-    document.getElementById("footer")?.removeAttribute("data-section")
-
     const linkYAnimation = animate(
       "#link",
       {y: [0 , -14]},
