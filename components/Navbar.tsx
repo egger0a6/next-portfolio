@@ -14,13 +14,15 @@ const Navbar = () => {
   const observer = useRef<IntersectionObserver>();
 
   const options = {
-    rootMargin: "0px",
-    threshold: 0.66,
+    rootMargin: "-50px 0px -55%",
+    
   }
 
+  // console.log(activeSection)
   useEffect(() => {
     observer.current = new IntersectionObserver((entries) => {
       const visibleSection = entries.find((entry) => entry.isIntersecting)?.target;
+      console.log(entries)
 
       if (visibleSection) setActiveSection(visibleSection.id);
     }, options);
@@ -57,7 +59,7 @@ const Navbar = () => {
   return (
     <div className={`fixed top-0 left-0 w-full z-10 border-b border-dark-3 ${openNavigation ? "bg-dark-1" : "bg-dark-1/90 backdrop-blur-sm"}`}>
       <div className="flex items-center justify-between px-5 lg:px-7.5 xl:px-10 max-lg:py-4">
-        <a href="#hero" className="block xl:mr-8">
+        <a href="#hero" onClick={toggleNavigation} className="block xl:mr-8">
           <Image
             src="/images/logo.png"
             alt="logo"
@@ -66,7 +68,7 @@ const Navbar = () => {
           />
         </a>
 
-        <nav className={`${openNavigation ? "flex" : "hidden"} fixed top-[4rem] left-0 right-0 bottom-0 bg-dark-1 lg:static lg:flex lg:bg-transparent`}>
+        <nav className={`${openNavigation ? "flex" : "hidden"} fixed top-[2.5rem] left-0 right-0 bottom-0 bg-dark-1 lg:static lg:flex lg:bg-transparent`}>
           <div className="z-5 flex flex-col items-center justify-center m-auto lg:flex-row">
             {navigation.map((item) => (
               <a 
