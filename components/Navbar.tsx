@@ -38,12 +38,6 @@ const Navbar = () => {
         observer?.unobserve(sections[idx]);
       });
     };
-
-    // return () => {
-    //   sections.forEach((section) => {
-    //     observer.current?.unobserve(section);
-    //   })
-    // }
   }, []);
 
   const toggleNavigation = () => {

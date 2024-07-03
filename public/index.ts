@@ -26,7 +26,10 @@ import typescript from "./icons/typescript.svg";
 import curve1 from "./svg/curve-1.svg";
 import curve2 from "./svg/curve-2.svg";
 
-import choomz from "./images/thumnails/choomz-thumbnail.png";
+import choomz from "./images/thumbnails/choomz-thumbnail.png";
+import solePoll from "./images/thumbnails/sole-poll-thumbnail.png";
+import squadSwap from "./images/thumbnails/squad-swap-thumbnail.png";
+import dota from "./images/thumbnails/dota-thumbnail.png";
 
 export {
   wellfound,
@@ -55,4 +58,7 @@ export {
   curve1,
   curve2,
   choomz,
+  solePoll,
+  squadSwap,
+  dota,
 };

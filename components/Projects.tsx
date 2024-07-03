@@ -21,19 +21,19 @@ const Projects = () => {
             <CardContainer key={project.id}>
               <CardBody className="bg-dark-4 relative group/card hover:shadow-2xl hover:shadow-red-2/[0.2] border-light-2/50 w-auto sm:w-[570px] h-auto rounded-xl p-6 border">
                 <CardItem
-                  translateZ="50"
+                  translateZ="60"
                   className="text-xl font-bold"
                 >
-                  <span className="text-red-1">Choomz</span>{project.title}
+                  <span className="text-red-1">{project.title}</span>{project.subtitle}
                 </CardItem>
                 <CardItem
                   as="p"
-                  translateZ="60"
+                  translateZ="70"
                   className="text-md max-w-sm mt-2"
                 >
                   {project.description}
                 </CardItem>
-                <CardItem translateZ="100" className="w-full mt-4">
+                <CardItem translateZ="110" className="w-full mt-4">
                   <Image
                     src={project.thumbnail}
                     height="1000"
@@ -44,7 +44,7 @@ const Projects = () => {
                 </CardItem>
                 <div className="flex justify justify-between mt-6">
                   <CardItem
-                    translateZ={20}
+                    translateZ={30}
                     className=""
                   >
                     <a href={project.repoUrl} target="_blank">
@@ -61,7 +61,7 @@ const Projects = () => {
                     </a>
                   </CardItem>
                   <CardItem
-                    translateZ={20}
+                    translateZ={30}
                     className=""
                   >
                     <a href={project.liveUrl} target="_blank">

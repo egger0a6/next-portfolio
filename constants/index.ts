@@ -1,4 +1,4 @@
-import { aws, choomz, django, docker, email, express, firebase, fm, git, github, html, java, javascript, linkedin, mongodb, nextjs, nodejs, postgresql, python, react, reactRouter, tailwindcss, typescript, wellfound } from "@/public";
+import { aws, choomz, django, docker, dota, email, express, firebase, fm, git, github, html, java, javascript, linkedin, mongodb, nextjs, nodejs, postgresql, python, react, reactRouter, solePoll, squadSwap, tailwindcss, typescript, wellfound } from "@/public";
 
 export const navigation = [
   {
@@ -147,34 +147,38 @@ export const techStack = [
 export const projects = [
   {
     id: "0",
-    title: " - Video Conferencing App",
+    title: "Choomz",
+    subtitle: " - Video Conferencing App",
     description: "This app offers a straightforward video conferencing experience. Effortlessly connect with others using Choomz.",
     liveUrl: "https://video-conference-clone.vercel.app/",
     repoUrl: "https://github.com/egger0a6/video-conference-clone",
     thumbnail:  choomz,
   },
   {
-    id: "0",
-    title: " - Video Conferencing App",
-    description: "This app offers a straightforward video conferencing experience. Effortlessly connect with others using Choomz.",
-    liveUrl: "https://video-conference-clone.vercel.app/",
-    repoUrl: "https://github.com/egger0a6/video-conference-clone",
-    thumbnail:  choomz,
+    id: "1",
+    title: "Squad Swap",
+    subtitle: " - Online Marketplace",
+    description: "Squad Swap is an online marketplace where friends, family, and similiar-interest groups can buy and sell their goods through a bidding/buying/bartering process.",
+    liveUrl: "https://squad-swap.onrender.com/",
+    repoUrl: "https://github.com/egger0a6/squad-swap",
+    thumbnail:  squadSwap,
   },
   {
-    id: "0",
-    title: " - Video Conferencing App",
-    description: "This app offers a straightforward video conferencing experience. Effortlessly connect with others using Choomz.",
-    liveUrl: "https://video-conference-clone.vercel.app/",
-    repoUrl: "https://github.com/egger0a6/video-conference-clone",
-    thumbnail:  choomz,
+    id: "2",
+    title: "Sole Poll",
+    subtitle: " - Online Poll App",
+    description: "Quickly and easily create and deliver online polls. Send surveys and get feedback in just a few steps.",
+    liveUrl: "https://sole-poll.fly.dev/",
+    repoUrl: "https://github.com/egger0a6/sole-poll",
+    thumbnail:  solePoll,
   },
   {
-    id: "0",
-    title: " - Video Conferencing App",
-    description: "This app offers a straightforward video conferencing experience. Effortlessly connect with others using Choomz.",
-    liveUrl: "https://video-conference-clone.vercel.app/",
-    repoUrl: "https://github.com/egger0a6/video-conference-clone",
-    thumbnail:  choomz,
+    id: "3",
+    title: "Dota 2 Hero Guides",
+    subtitle: " - Dota 2 Companion App",
+    description: "With this app, you can create simple itemization guides for any hero in the multiplayer online battle arena (MOBA) video game, Dota 2.",
+    liveUrl: "https://dota2-hero-guides.onrender.com/",
+    repoUrl: "https://github.com/egger0a6/Dota2-Hero-Guides",
+    thumbnail:  dota,
   },
 ];
