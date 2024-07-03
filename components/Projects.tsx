@@ -42,6 +42,25 @@ const Projects = () => {
                     alt="thumbnail"
                   />
                 </CardItem>
+                <CardItem translateZ={30} className="mt-4">
+                  <div className="flex items-center">
+                    {project.techIcons.map((icon, idx) => (
+                      <div 
+                        key={icon}
+                        className="border bg-dark-6 border-light-2/50 rounded-full flex items-center justify-center lg:w-10 lg:h-10 w-8 h-8"
+                        style={{transform: `translateX(-${3 * idx * 2}px)`}}
+                      >
+                        <Image
+                          src={icon}
+                          width={128}
+                          height={128}
+                          alt="tech icon"
+                          className="p-2"
+                        />
+                      </div>
+                    ))}
+                  </div>
+                </CardItem>
                 <div className="flex justify justify-between mt-6">
                   <CardItem
                     translateZ={30}

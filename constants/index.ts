@@ -1,4 +1,4 @@
-import { aws, choomz, django, docker, dota, email, express, firebase, fm, git, github, html, java, javascript, linkedin, mongodb, nextjs, nodejs, postgresql, python, react, reactRouter, solePoll, squadSwap, tailwindcss, typescript, wellfound } from "@/public";
+import { aws, choomz, clerk, django, docker, dota, email, express, firebase, fm, git, github, html, java, javascript, linkedin, mongodb, nextjs, nodejs, postgresql, python, react, reactRouter, solePoll, squadSwap, stream, tailwindcss, typescript, wellfound } from "@/public";
 
 export const navigation = [
   {
@@ -153,6 +153,7 @@ export const projects = [
     liveUrl: "https://video-conference-clone.vercel.app/",
     repoUrl: "https://github.com/egger0a6/video-conference-clone",
     thumbnail:  choomz,
+    techIcons: [nextjs, typescript, tailwindcss, stream, clerk],
   },
   {
     id: "1",
@@ -162,6 +163,7 @@ export const projects = [
     liveUrl: "https://squad-swap.onrender.com/",
     repoUrl: "https://github.com/egger0a6/squad-swap",
     thumbnail:  squadSwap,
+    techIcons: [react, reactRouter, nodejs, mongodb, javascript],
   },
   {
     id: "2",
@@ -171,6 +173,7 @@ export const projects = [
     liveUrl: "https://sole-poll.fly.dev/",
     repoUrl: "https://github.com/egger0a6/sole-poll",
     thumbnail:  solePoll,
+    techIcons: [django, python, postgresql, docker,],
   },
   {
     id: "3",
@@ -180,5 +183,6 @@ export const projects = [
     liveUrl: "https://dota2-hero-guides.onrender.com/",
     repoUrl: "https://github.com/egger0a6/Dota2-Hero-Guides",
     thumbnail:  dota,
+    techIcons: [nodejs, express, mongodb, javascript,],
   },
 ];
