@@ -24,6 +24,7 @@ import tailwindcss from "./icons/tailwindcss.svg";
 import typescript from "./icons/typescript.svg";
 import stream from "./icons/stream.svg";
 import clerk from "./icons/clerk.svg";
+import codewars from "./icons/codewars.svg";
 
 import curve1 from "./svg/curve-1.svg";
 import curve2 from "./svg/curve-2.svg";
@@ -65,4 +66,5 @@ export {
   dota,
   stream,
   clerk,
+  codewars,
 };

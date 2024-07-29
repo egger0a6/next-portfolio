@@ -46,7 +46,7 @@ const Projects = () => {
                   <div className="flex items-center">
                     {project.techIcons.map((icon, idx) => (
                       <div 
-                        key={icon}
+                        key={idx}
                         className="border bg-dark-6 border-light-2/50 rounded-full flex items-center justify-center lg:w-10 lg:h-10 w-8 h-8"
                         style={{transform: `translateX(-${3 * idx * 2}px)`}}
                       >

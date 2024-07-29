@@ -60,7 +60,7 @@ const Navbar = () => {
   return (
     <div className={`fixed top-0 left-0 w-full z-10 border-b border-stroke-1 ${openNavigation ? "bg-dark-1" : "bg-dark-1/90 backdrop-blur-sm"}`}>
       <div className="flex items-center justify-between px-5 lg:px-7.5 xl:px-10 max-lg:py-4">
-        <a href="#hero" onClick={toggleNavigation} className="block xl:mr-8">
+        <a href="#hero" onClick={() => setOpenNavigation(false)} className="block xl:mr-8">
           <Image
             src="/images/logo.png"
             alt="logo"
@@ -76,14 +76,14 @@ const Navbar = () => {
                 key={item.id}
                 href={item.url}
                 onClick={handleClick}
-                className={`block font-code text-2xl uppercase transition-colors hover:text-red-2 px-6 py-6 md:py-8 lg:-mr-0.25 lg:text-lg lg:font-semibold mb- ${(item.url.slice(1) === activeSection) ? "z-5 lg:text-light-6" : "lg:text-light-1"} lg:leading-5 lg:hover:text-light-6 xl:px-12`}
+                className={`block font-code text-2xl uppercase transition-colors hover:text-red-2 px-6 py-6 md:py-8 lg:-mr-0.25 lg:text-lg lg:font-semibold ${(item.url.slice(1) === activeSection) ? "z-5 lg:text-light-6" : "lg:text-light-1"} lg:leading-5 lg:hover:text-light-6 xl:px-12`}
               >
                 <span className={`pb-2 ${(item.url.slice(1) === activeSection) ? "border-b border-red-2 border-opacity-40" : ""}`}>{item.title}</span>
               </a>
             ))}
           </div>
 
-          <div className="absolute inset-0 w-full h-full pointer-events-none lg:hidden z-50" />
+          {/* <div className="absolute inset-0 w-full h-full pointer-events-none lg:hidden z-50" /> */}
         </nav>
 
         <Button 
