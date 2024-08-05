@@ -2,24 +2,20 @@
 
 import Loader from '@/components/design/Loader';
 import { BackgroundGradient } from '@/components/ui/background-gradient';
+import { languages } from '@/constants';
+import { useGetCodewarsData } from '@/hooks/useGetCodewarsData';
 import { codewars } from '@/public';
 import Image from 'next/image';
 import React, { useEffect, useState } from 'react'
-import { FaArrowRightToBracket, FaLocationArrow } from 'react-icons/fa6';
+import { FaLocationArrow } from 'react-icons/fa6';
 
 const Codewars = () => {
-  const [user, setUser] = useState();
   const [challenges, setChallenges] = useState<any>();
   const [totItems, setTotalItems] = useState();
 
+  const { user } = useGetCodewarsData();
 
   useEffect(() => {
-    const getUser = async () => {
-      const user = await fetch("https://www.codewars.com/api/v1/users/egger0a6");
-      setUser(await user.json());
-    }
-    getUser();
-
     // const getChallenges = async () => {
     //   const challenges = await fetch("https://www.codewars.com/api/v1/users/egger0a6/code-challenges/completed");
     //   const response = await challenges.json();
@@ -48,7 +44,7 @@ const Codewars = () => {
   // }
 
 
-  // if (!user || !challenges) return <Loader />;
+  // if (!user || !challenges || isLoading) return <Loader />;
 
   return (
     <div className='py-32 xl:py-40 -mt-[5.25rem]'>
@@ -66,18 +62,49 @@ const Codewars = () => {
         </div>
 
         <BackgroundGradient className='bg-dark-6 rounded-md p-8'>
-          <div className='flex gap-6'>
-            <a href="https://www.codewars.com/users/egger0a6" target="_blank">
-              <p className='flex items-center gap-2 hover:text-red-3'>
+          <div className='flex sm:flex-row flex-col justify-around text-lg flex-wrap gap-6 items-center'>
+            <a href="https://www.codewars.com/users/egger0a6" target="_blank" className='mr-4'>
+              <div className='flex items-center gap-2 hover:text-red-3'>
                 {user?.username}
                 <FaLocationArrow />
-              </p>
+              </div>
             </a>
             <p>
-              {user?.codeChallenges?.totalCompleted} Challenges Completed
+              Rank:&nbsp; <span className={`text-${user?.rankColor}-500`}>{user?.username}</span>
             </p>
+            <p>
+              Challenges Completed:&nbsp; <span className='text-red-2'>{user?.totalChallenges}</span>
+            </p>
+            <p>
+              Honor:&nbsp; <span className='text-red-2'>{user?.honor}</span>
+            </p>
+            <p>
+              Leaderboard:&nbsp; <span className='text-red-2'>{user?.leaderboard}</span>
+            </p>
+            <div className='flex items-center gap-2'>
+              <p>Skills:</p>
+              <div>
+                {user?.skills.map((skill: string, idx: number) => (
+                  <div
+                    key={idx}
+                    className="border bg-dark-6 border-light-2/50 rounded-full flex items-center justify-center lg:w-10 lg:h-10 w-8 h-8"
+                    style={{ transform: `translateX(-${3 * idx * 2}px)` }}
+                  >
+                    <Image
+                      src={languages[skill]}
+                      width={128}
+                      height={128}
+                      alt="tech icon"
+                      className="p-2"
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </BackgroundGradient>
+
+
       </div>
     </div>
   )

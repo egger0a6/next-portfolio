@@ -186,3 +186,7 @@ export const projects = [
     techIcons: [nodejs, express, mongodb, javascript,],
   },
 ];
+
+export const languages: {[key: string]: any} = {
+  "javascript": javascript,
+};
