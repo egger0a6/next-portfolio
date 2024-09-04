@@ -19,11 +19,11 @@ const DataTable = <TData, TValue>({
   return (
     <div>
       <Table>
-        <TableHeader>
+        {/* <TableHeader>
           {table.getHeaderGroups().map((headerGroup) => (
             
           ))}
-        </TableHeader>
+        </TableHeader> */}
       </Table>
     </div>
   )
