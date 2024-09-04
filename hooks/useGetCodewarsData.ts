@@ -68,15 +68,15 @@ export const useGetCodewarsData = () => {
         challenges: [],
       };
 
-      challengesData.forEach((challenge: any) => {
-        const newChallenge = {
-          id: challenge.id,
-          name: challenge.name,
-          completedLanguages: challenge.completedLanguages,
-          data: {},
-        }
-        challengeData.challenges.push(newChallenge);
-      });
+      // challengesData.forEach((challenge: any) => {
+      //   const newChallenge = {
+      //     id: challenge.id,
+      //     name: challenge.name,
+      //     completedLanguages: challenge.completedLanguages,
+      //     data: {},
+      //   }
+      //   challengeData.challenges.push(newChallenge);
+      // });
     }
   }, []);
 
