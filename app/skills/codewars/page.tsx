@@ -10,10 +10,9 @@ import React, { useEffect, useState } from 'react'
 import { FaLocationArrow } from 'react-icons/fa6';
 
 const Codewars = () => {
-  const [challenges, setChallenges] = useState<any>();
   const [totItems, setTotalItems] = useState();
 
-  const { user } = useGetCodewarsData();
+  const { user, challenges, isUserLoading, isChallengesLoading } = useGetCodewarsData();
 
   useEffect(() => {
     // const getChallenges = async () => {
@@ -26,7 +25,8 @@ const Codewars = () => {
   }, []);
 
   console.log(user)
-  // console.log(challenges)
+  console.log(challenges)
+  console.log(isChallengesLoading)
 
   // if (challenges) {
   //   const getChallengeDetails = async (id: string) => {
@@ -44,7 +44,7 @@ const Codewars = () => {
   // }
 
 
-  // if (!user || !challenges || isLoading) return <Loader />;
+  // if (!user || !challenges || isUserLoading || isChallengesLoading) return <Loader />;
 
   return (
     <div className='py-32 xl:py-40 -mt-[5.25rem]'>
@@ -70,7 +70,7 @@ const Codewars = () => {
               </div>
             </a>
             <p>
-              Rank:&nbsp; <span className={`text-${user?.rankColor}-500`}>{user?.username}</span>
+              Rank:&nbsp; <span className={`text-${user?.rankColor}-500`}>{user?.rank}</span>
             </p>
             <p>
               Challenges Completed:&nbsp; <span className='text-red-2'>{user?.totalChallenges}</span>

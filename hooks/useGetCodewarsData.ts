@@ -36,7 +36,8 @@ interface ChallengesTypes {
 }
 
 export const useGetCodewarsData = () => {
-  const [isLoading, setIsLoading] = useState(false);
+  const [isUserLoading, setIsUserLoading] = useState(true);
+  const [isChallengesLoading, setIsChallengesLoading] = useState(true);
   const [user, setUser] = useState<UserTypes>();
   const [challenges, setChallenges] = useState<ChallengesTypes>();
 
@@ -56,6 +57,7 @@ export const useGetCodewarsData = () => {
       };
 
       setUser(user);
+      setIsUserLoading(false);
     }
     getUser();
 
@@ -95,13 +97,17 @@ export const useGetCodewarsData = () => {
       });
 
       setChallenges(challengeData);
+      setIsChallengesLoading(false);
     }
+    getChallenges();
   }, []);
 
-  if (user && challenges) setIsLoading(true);
-  console.log(isLoading)
+  console.log(challenges)
 
   return {
     user,
+    challenges,
+    isUserLoading,
+    isChallengesLoading,
   };
 }
