@@ -1,5 +1,5 @@
-import { ColumnDef, getCoreRowModel, useReactTable } from "@tanstack/react-table";
-import { Table, TableHeader } from "./table";
+import { ColumnDef, flexRender, getCoreRowModel, useReactTable } from "@tanstack/react-table";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "./table";
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
@@ -19,11 +19,48 @@ const DataTable = <TData, TValue>({
   return (
     <div>
       <Table>
-        {/* <TableHeader>
+        <TableHeader>
           {table.getHeaderGroups().map((headerGroup) => (
-            
+            <TableRow key={headerGroup.id}>
+              {headerGroup.headers.map((header) => (
+                <TableHead key={header.id}>
+                  {header.isPlaceholder
+                    ? null
+                    : flexRender(
+                      header.column.columnDef.header,
+                      header.getContext()
+                    )
+                  }
+                </TableHead>
+              ))}
+            </TableRow>
           ))}
-        </TableHeader> */}
+        </TableHeader>
+        <TableBody>
+          {table.getRowModel().rows?.length ? (
+            table.getRowModel().rows.map((row) => (
+              <TableRow
+                key={row.id}
+                data-state={row.getIsSelected() && "selected"}
+              >
+                {row.getVisibleCells().map((cell) => (
+                  <TableCell key={cell.id}>
+                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                  </TableCell>
+                ))}
+              </TableRow>
+            ))
+          ) : (
+            <TableRow>
+              <TableCell 
+                colSpan={columns.length}
+                className=""
+              >
+                No results.
+              </TableCell>
+            </TableRow>
+          )}
+        </TableBody>
       </Table>
     </div>
   )

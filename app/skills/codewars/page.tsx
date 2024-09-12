@@ -10,41 +10,14 @@ import React, { useEffect, useState } from 'react'
 import { FaLocationArrow } from 'react-icons/fa6';
 
 const Codewars = () => {
-  const [totItems, setTotalItems] = useState();
-
   const { user, challenges, isUserLoading, isChallengesLoading } = useGetCodewarsData();
 
-  useEffect(() => {
-    // const getChallenges = async () => {
-    //   const challenges = await fetch("https://www.codewars.com/api/v1/users/egger0a6/code-challenges/completed");
-    //   const response = await challenges.json();
-    //   setTotalItems(response.totalItems)
-    //   setChallenges(response.data);
-    // }
-    // getChallenges();
-  }, []);
-
-  console.log(user)
   console.log(challenges)
-  console.log(isChallengesLoading)
 
-  // if (challenges) {
-  //   const getChallengeDetails = async (id: string) => {
-  //     console.log(id)
-  //     const details = await fetch(`https://www.codewars.com/api/v1/code-challenges/${id}`)
-  //     return await details.json();
-  //   }
+  if (!user || !challenges || isUserLoading || isChallengesLoading) return <Loader />;
 
-  //   challenges.forEach(async (challenge) => {
-  //     const details = await getChallengeDetails(challenge.id);
-  //     challenge["details"] = details;
-  //   });
-
-  //   console.log(challenges)
-  // }
-
-
-  // if (!user || !challenges || isUserLoading || isChallengesLoading) return <Loader />;
+  const data = [];
+  // challenges.challenges.forEach(challenge)
 
   return (
     <div className='py-32 xl:py-40 -mt-[5.25rem]'>
@@ -104,7 +77,7 @@ const Codewars = () => {
           </div>
         </BackgroundGradient>
 
-
+        
       </div>
     </div>
   )
