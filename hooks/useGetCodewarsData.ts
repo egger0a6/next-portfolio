@@ -10,7 +10,7 @@ interface UserTypes {
   skills: string[];
 }
 
-interface ChallengeTypes {
+export interface ChallengeTypes {
   id: string;
   name: string;
   completedLanguages: string[];
@@ -62,23 +62,22 @@ export const useGetCodewarsData = () => {
         challenges: [],
       };
 
-      challengesData.data.forEach((challenge: any) => {
+      challengesData.data.forEach(async (challenge: any) => {
         const newChallenge: ChallengeTypes = {
           id: challenge.id,
           name: challenge.name,
           completedLanguages: challenge.completedLanguages,
         }
-        challengeData.challenges.push(newChallenge);
-      });
 
-      challengeData.challenges.forEach(async (challenge: ChallengeTypes) => {
         const resp = await fetch(`https://www.codewars.com/api/v1/code-challenges/${challenge.id}`);
         const challengeDetails = await resp.json();
-        challenge.url = challengeDetails.url;
-        challenge.category = challengeDetails.category;
-        challenge.description = challengeDetails.description;
-        challenge.rank = challengeDetails.rank.name;
-        challenge.rankColor = challengeDetails.rank.color;
+        newChallenge.url = challengeDetails.url;
+        newChallenge.category = challengeDetails.category;
+        newChallenge.description = challengeDetails.description;
+        newChallenge.rank = challengeDetails.rank.name;
+        newChallenge.rankColor = challengeDetails.rank.color;
+
+        challengeData.challenges.push(newChallenge);
       });
 
       setChallenges(challengeData);
@@ -86,8 +85,6 @@ export const useGetCodewarsData = () => {
     }
     getChallenges();
   }, []);
-
-  console.log(challenges)
 
   return {
     user,

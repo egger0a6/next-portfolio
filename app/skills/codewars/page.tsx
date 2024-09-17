@@ -2,11 +2,12 @@
 
 import Loader from '@/components/design/Loader';
 import { BackgroundGradient } from '@/components/ui/background-gradient';
+import { columns } from '@/components/ui/columns';
+import DataTable from '@/components/ui/data-table';
 import { languages } from '@/constants';
 import { useGetCodewarsData } from '@/hooks/useGetCodewarsData';
 import { codewars } from '@/public';
 import Image from 'next/image';
-import React, { useEffect, useState } from 'react'
 import { FaLocationArrow } from 'react-icons/fa6';
 
 const Codewars = () => {
@@ -14,10 +15,7 @@ const Codewars = () => {
 
   console.log(challenges)
 
-  if (!user || !challenges || isUserLoading || isChallengesLoading) return <Loader />;
-
-  const data = [];
-  // challenges.challenges.forEach(challenge)
+  if (!user || !challenges || isUserLoading || isChallengesLoading ) return <Loader />;
 
   return (
     <div className='py-32 xl:py-40 -mt-[5.25rem]'>
@@ -76,8 +74,11 @@ const Codewars = () => {
             </div>
           </div>
         </BackgroundGradient>
+                <div>{challenges.challenges.length}</div>
+        {challenges.challenges.length && 
 
-        
+        <DataTable columns={columns} data={challenges?.challenges} />
+        }
       </div>
     </div>
   )
